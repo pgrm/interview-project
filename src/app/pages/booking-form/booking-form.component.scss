@@ -1,0 +1,65 @@
+@import '../../../variables';
+
+label {
+    display: block;
+    margin-top: 30px;
+    font-size: 18px;
+    font-weight: 600;
+    color: $c-prim-dark;
+}
+
+input, .readonly {
+    font-size: 14px;
+    width: calc(33% - 52px);
+    padding: 8px 10px;
+    margin: 15px;
+    color: $c-text;
+}
+
+input {
+    border: 1px solid $c-border;
+
+    &.ng-invalid {
+        border-color: $c-warning;
+    }
+}
+
+button {
+    width: 150px;
+    padding: 10px 15px;
+    border: 1px solid $c-border;
+    border-radius: 4px;
+    margin: 30px 15px;
+    background: none;
+    cursor: pointer;
+    float: right;
+    transition: background-color 0.2s, color 0.2s;
+
+    &:hover {
+        background-color: $c-border;
+        color: white;
+    }
+
+    &.delete {
+        float: left;
+        border-color: $c-warning;
+
+        &:hover {
+            background-color: $c-warning;
+        }
+    }
+
+    &[type="submit"] {
+        border-color: $c-prim-dark;
+
+        &:hover {
+            background-color: $c-prim-dark;
+        }
+    }
+}
+
+form.ng-invalid button[type="submit"] {
+    cursor: default;
+    border-color: $c-warning;
+    pointer-events: none;
+}

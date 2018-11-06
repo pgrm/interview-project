@@ -1,0 +1,59 @@
+@import '../../../_variables';
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    
+    tr {
+        cursor: pointer;
+        transition: background-color 0.2s;
+
+        &:nth-child(odd) {
+            background-color: $c-prim-light;
+        }
+
+        &:first-child {
+            background-color: $c-border;
+            color: white;
+            text-align: left;
+        }
+
+        &:not(:first-child):hover {
+            background-color: $c-prim;
+        }
+    }
+
+    th, td {
+        padding: 10px 20px;
+    }
+
+    th {
+        position: relative;
+        text-transform: capitalize;
+
+        &:first-child {
+            border-top-left-radius: 4px;
+        }
+        &:last-child {
+            border-top-right-radius: 4px;
+        }
+
+        i.caret {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            border: 6px solid transparent;
+            border-bottom-color: white;
+            transition: transform 0.2s, top 0.2s;
+
+            &.hidden {
+                display: none;
+            }
+
+            &.desc {
+                top: 18px;
+                transform: rotate(180deg);
+            }
+        }
+    }
+}

@@ -1,0 +1,54 @@
+<h2 *ngIf="!booking">
+	Invalid Booking ID
+</h2>
+
+<div *ngIf="booking">
+	<h2>
+		Edit Booking Details
+	</h2>
+	<form
+		[formGroup]="form"
+		(ngSubmit)="saveForm()"
+	>
+		<label>Id</label>
+		<div class="readonly">
+			{{ booking.id }}
+		</div>
+
+		<label for="firstName">Name</label>
+		<div class="inline-group">
+			<input
+				id="firstName"
+				type="text"
+				placeholder="First Name"
+				formControlName="firstName"
+				required
+			>
+			<input
+				type="text"
+				maxlength="1"
+				placeholder="Middle Initial (optional)"
+				formControlName="middleInitial"
+			>
+			<input
+				type="text"
+				placeholder="Last name"
+				formControlName="lastName"
+				required
+			>
+		</div>
+
+		<label for="email">Email</label>
+		<input
+			type="email"
+			formControlName="email"
+			required
+		>
+
+		<div class="controls">
+			<button class="delete"> Delete Booking </button>
+			<button type="submit"> Save </button>
+			<button routerLink="/"> Cancel </button>
+		</div>
+	</form>
+</div>

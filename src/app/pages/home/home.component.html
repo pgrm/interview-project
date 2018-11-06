@@ -1,0 +1,28 @@
+<table>
+	<tr>
+		<th *ngFor="let col of ['id', 'name', 'location', 'email']"
+			(click)="sort(col)"
+		>
+			{{ col }}
+			<i 	class="caret"
+				[ngClass]="{
+					'desc': sortDesc,
+					'hidden': sortCol !== col
+				}"
+			></i>
+		</th>
+	</tr>
+	<tr *ngFor="let b of bookings"
+		[routerLink]="['/' + b.id]"
+	>
+		<td>{{ b.id }}</td>
+		<td>{{ b.booker.lastName }}, {{ b.booker.firstName }} {{ b.booker.middleInitial }} </td>
+		<td *ngIf="b.booker.address">
+			{{ b.booker.address.city || 'Unknown City' }}{{ b.booker.address.countryCode ? ', ' + b.booker.address.countryCode : '' }}
+		</td>
+		<td *ngIf="!b.booker.address">
+			<em>Unknown</em>
+		</td>
+		<td>{{ b.booker.email }}</td>
+	</tr>
+</table>

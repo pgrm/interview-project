@@ -1,0 +1,17 @@
+@import './_variables';
+
+main, header {
+    width: 980px;
+    margin: 0 auto;
+    font-family: $f-prim;
+    color: $c-text;
+    font-size: 14px;
+}
+
+header {
+    text-align: center;
+}
+
+main {
+    margin-bottom: 80px;
+}
